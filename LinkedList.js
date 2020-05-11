@@ -6,7 +6,7 @@ class LinkedList {
   print() {
     let currentNode = this.head;
 
-    while(currentNode.next !== null) {
+    while (currentNode.next !== null) {
       console.log(currentNode.value)
       currentNode = currentNode.next
     }
@@ -43,8 +43,8 @@ class LinkedList {
   isCircular() {
     let currentNode = this.head;
 
-    while(currentNode.next !== null) {
-      if(currentNode.next === this.head) {
+    while (currentNode.next !== null) {
+      if (currentNode.next === this.head) {
         return true;
       }
 
@@ -58,11 +58,11 @@ class LinkedList {
     let currentNode = this.head;
     let nextNode = currentNode
 
-    while(currentNode.next !== null) {
+    while (currentNode.next !== null) {
       nextNode = nextNode.next.next;
       currentNode = currentNode.next;
 
-      if(nextNode === currentNode){
+      if (nextNode === currentNode) {
         return true
       }
     }
@@ -75,13 +75,18 @@ class LinkedList {
     const array = [];
     const values = {};
 
-    while(currentNode.next !== null) { 
-      if(values[currentNode.value] !== undefined) {
+    while (currentNode.next !== null) {
+      console.log(JSON.stringify(values))
+      if (values[currentNode.value] === 0) {
         array.push(currentNode.value)
+        values[currentNode.value]++
       }
-
-      values[currentNode.value] = currentNode.value
-
+      else if(values[currentNode.value] === undefined) {
+        values[currentNode.value] = 0
+      }
+      else {
+        values[currentNode.value]++
+      }
       currentNode = currentNode.next
     }
 
